@@ -1,6 +1,8 @@
 import 'package:mahasiswa_crud/entities/mahasiswa.dart';
 
 abstract class MahasiswaRepositoryInterface {
+  // add mahasiswa
   void addMahasiswa(Mahasiswa mahasiswa);
-  // method lainnya seperti get, update, delete, dll.
+  // view mahasiswa
+  List<Mahasiswa> getAllMahasiswa();
 }
