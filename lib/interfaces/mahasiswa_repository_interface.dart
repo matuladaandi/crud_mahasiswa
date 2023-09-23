@@ -9,4 +9,7 @@ abstract class MahasiswaRepositoryInterface {
 
   // edit mahasiswa
   void editMahasiswa(int nim, Mahasiswa updateMahasiswa);
+
+  // delete mahasiswa
+  void deleteMahasiswa(int nim);
 }

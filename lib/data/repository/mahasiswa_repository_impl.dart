@@ -24,4 +24,10 @@ class MahasiswaRepositoryImp implements MahasiswaRepositoryInterface {
       _dataMahasiswa[index] = updateMahasiswa;
     }
   }
+
+  // deleta mahasiswa
+  @override
+  void deleteMahasiswa(int nim){
+    _dataMahasiswa.removeWhere((mhs) => mhs.nim == nim);
+  }
 }

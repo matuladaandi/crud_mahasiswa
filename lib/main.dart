@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:mahasiswa_crud/data/repository/mahasiswa_repository_impl.dart';
 import 'package:mahasiswa_crud/use_case/add_mahasiswa.dart';
+import 'package:mahasiswa_crud/use_case/delete_mahasiswa.dart';
 import 'package:mahasiswa_crud/use_case/edit_mahasiswa.dart';
 import 'package:mahasiswa_crud/use_case/view_mahasiswa.dart';
 
@@ -14,6 +15,7 @@ void runApp(){
   final addMahasiswaUsecase = AddMahasiswa(repository);
   ViewMahasiswa viewMahasiswa = ViewMahasiswa(repository);
   EditMahasiswa editMhs = EditMahasiswa(repository);
+  DeleteMahasiswa deleteMahasiswa = DeleteMahasiswa(repository);
   while (true) {
     print('================================');
     print('-- welcome to the student app--');
@@ -37,6 +39,9 @@ void runApp(){
     case '3':
     editMhs.editMahasiswa();
       break;
+    case '4':
+    deleteMahasiswa.deleteMhs();
+    break;
      case '5' :
      print("Terima kasih telah menggunakan aplikasi. Sampai jumpa!");
      return;
