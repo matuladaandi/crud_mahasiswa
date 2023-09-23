@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:mahasiswa_crud/data/repository/mahasiswa_repository_impl.dart';
 import 'package:mahasiswa_crud/use_case/add_mahasiswa.dart';
+import 'package:mahasiswa_crud/use_case/edit_mahasiswa.dart';
 import 'package:mahasiswa_crud/use_case/view_mahasiswa.dart';
 
 void main(List<String> args) {
@@ -12,6 +13,7 @@ void runApp(){
   final repository = MahasiswaRepositoryImp();
   final addMahasiswaUsecase = AddMahasiswa(repository);
   ViewMahasiswa viewMahasiswa = ViewMahasiswa(repository);
+  EditMahasiswa editMhs = EditMahasiswa(repository);
   while (true) {
     print('Data Mahasiswa');
     print('1. Tambah Data Mahasiswa');
@@ -28,6 +30,10 @@ void runApp(){
        break;
      case '2':
       viewMahasiswa.viewAll();
+      break;
+    case '3':
+    editMhs.editMahasiswa();
+      break;
      case '5' :
      print("Terima kasih telah menggunakan aplikasi. Sampai jumpa!");
      return;
