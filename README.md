@@ -1,2 +1,2 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+This is a simple comelint application created with the aim of being an exercise for learning dart oop
+hope you enjoy it :)
