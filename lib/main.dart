@@ -24,6 +24,9 @@ void runApp(){
      case '1': //error
        addMahasiswaUsecase.addMhs();
        break;
+     case '5' :
+     print("Terima kasih telah menggunakan aplikasi. Sampai jumpa!");
+     return;
      default:
      print("Pilihan tidak dikenal. Silakan Coba lagi :)");
    }
