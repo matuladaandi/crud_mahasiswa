@@ -1,37 +1,47 @@
-  import 'dart:io';
+import 'dart:io';
 
-  import 'package:mahasiswa_crud/entities/mahasiswa.dart';
-  import 'package:mahasiswa_crud/interfaces/mahasiswa_repository_interface.dart';
+import 'package:mahasiswa_crud/entities/mahasiswa.dart';
+import 'package:mahasiswa_crud/interfaces/mahasiswa_repository_interface.dart';
 
-  class EditMahasiswa {
-    final MahasiswaRepositoryInterface repository;
+class EditMahasiswa {
+  final MahasiswaRepositoryInterface repository;
 
-    EditMahasiswa(this.repository);
+  EditMahasiswa(this.repository);
 
-    void execute(int nim, Mahasiswa updateMahasiswa) {
-      repository.editMahasiswa(nim, updateMahasiswa);
+  void execute(int oldNim, int newNim, Mahasiswa updateMahasiswa) {
+    repository.editMahasiswa(newNim, updateMahasiswa);
+  }
+
+  void editMahasiswa() {
+    print('Masukan NIM yang ingin anda edit : ');
+    final oldNimString = stdin.readLineSync();
+    final oldNim = int.tryParse(oldNimString ?? '');
+    if (oldNim == null) {
+      print('nim yang dimasukan tidak valid');
+      return;
     }
 
-    void editMahasiswa() {
-      print('Masukan NIM yang ingin anda edit : ');
-      final nimString = stdin.readLineSync();
-      final nim = int.tryParse(nimString ?? '');
-      if (nim == null) {
-        print('nim yang dimasukan tidak valid');
-      }
+    print('Masukan Nim baru');
+    final newNimString = stdin.readLineSync();
+    final newNim = int.tryParse(newNimString ?? '');
+    if (newNim == null) {
+      print('Nim baru yang anda masukan tidak valid');
+      return;
+    }
 
-      print('Masukan Nama baru : ');
-      var nama = stdin.readLineSync();
+    print('Masukan Nama baru : ');
+    var nama = stdin.readLineSync();
 
-      print('Masukan Jurusan Baru : ');
-      var jurusan = stdin.readLineSync();
+    print('Masukan Jurusan Baru : ');
+    var jurusan = stdin.readLineSync();
 
-      if (nama != null && jurusan != null && nim != null) {
-        final updateMahasiswa = Mahasiswa(nim, nama, jurusan); // error (chtgpt(D))
-        execute(nim, updateMahasiswa);
-        print('Data Mahasiswa Berhasil diUbah');
-      } else {
-        print('Data yang diMasukan tidak Valid');
-      }
+    if (nama != null && jurusan != null) {
+      final updateMahasiswa =
+          Mahasiswa(newNim, nama, jurusan); // error (chtgpt(D))
+      execute(oldNim, newNim, updateMahasiswa);
+      print('Data Mahasiswa Berhasil diUbah');
+    } else {
+      print('Data yang diMasukan tidak Valid');
     }
   }
+}

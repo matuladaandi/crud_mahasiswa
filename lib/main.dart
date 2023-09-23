@@ -15,12 +15,15 @@ void runApp(){
   ViewMahasiswa viewMahasiswa = ViewMahasiswa(repository);
   EditMahasiswa editMhs = EditMahasiswa(repository);
   while (true) {
-    print('Data Mahasiswa');
+    print('================================');
+    print('-- welcome to the student app--');
+    print('================================');
     print('1. Tambah Data Mahasiswa');
     print('2. Lihat Semua Data Mahasiswa');
     print('3. Edit Mahasiswa');
     print('4. Hapus Mahasiswa');
     print('5. Keluar');
+    print('---------------------------------');
     print('Pilih angka(1/2/3/4/5) : ');
 
    var input = stdin.readLineSync();
